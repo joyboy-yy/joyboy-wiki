@@ -17,3 +17,8 @@ BRAT-log/
 !.env.example
 *.pem
 *.key
+
+# Work domain is local-only, except the company-abbrev subtree
+工作/*
+!工作/cssz/
+!工作/cssz/**
