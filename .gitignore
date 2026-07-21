@@ -1,0 +1,19 @@
+# Device-specific Obsidian state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+
+# Local and generated files
+.trash/
+.DS_Store
+Thumbs.db
+BRAT-log/
+*.log
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
