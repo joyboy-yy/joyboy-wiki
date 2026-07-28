@@ -1,6 +1,6 @@
 ---
 name: work-todo-triage
-description: Use when整理日常工作内容、今日待办、自己提出问题、自测发现问题、开发发现问题、测试提出问题、产品提出问题、前端提出问题、Bug反馈、需求调整、接口问题、语义纠正、任务梳理、条例清洗，尤其是要写入工作日志或今日待办时.
+description: Use when adding, cleaning, or restructuring Chinese work todos in 工作/日志/YYYY-MM-DD.md, including 今日待办、Bug反馈、需求调整、接口问题、语义纠正、任务梳理、条目清洗.
 ---
 
 # Work Todo Triage
@@ -17,7 +17,7 @@ Use this skill when the user provides any of these inputs:
 - 用户自己提出的问题、自测发现的问题、开发过程中发现的缺陷或优化点。
 - Bug、接口异常、权限问题、页面问题、数据问题。
 - 需求调整、优化点、技术方案想法、成本优化事项。
-- 用户要求“整理到今日待办”“优化待办项”“语义纠正”“任务清洗”“条例清洗”。
+- 用户要求“整理到今日待办”“优化待办项”“语义纠正”“任务清洗”“条目清洗”。
 
 Do not use this skill for long-form article formatting, generic markdown beautification, or non-work personal diaries.
 
@@ -81,16 +81,22 @@ Prefer verbs that make the task executable:
 - Split one line into multiple tasks when it contains different modules, platforms, or acceptance conditions.
 - Merge duplicates only when the object and desired outcome are the same.
 - Do not invent business facts, owners, deadlines, API names, or implementation details.
+- If the user explicitly limits fields, preserve that field whitelist exactly. Do not add inferred fields such as phone, ID card, institution, status, or permissions unless the user provided them.
+- If an equivalent todo already exists, do not add a duplicate. If the new input adds missing constraints, update the existing item or its note instead.
+- Treat two todos as duplicates when module, object, and desired outcome match, even if wording differs.
 
 ## Grouping
 
 When adding multiple items, group under `## 待办` with `###` headings. Use these headings when they fit:
 
 - `需求设计`
-- `Admin / App 功能`
+- `Admin 功能`
+- `App 功能`
+- `PC 功能`
 - `接口与数据`
 - `机构与权限`
 - `问题修复`
+- `需求确认`
 - `技术治理`
 - `成本优化`
 
@@ -123,6 +129,9 @@ Use an Obsidian callout for larger context that should not become multiple check
 > - `方案 B`：...
 ```
 
+- Use checkboxes for executable work only.
+- Put field mappings, return field limits, display rules, and acceptance notes into a callout unless they are separate implementation tasks.
+
 ## Workflow
 
 1. Read the target work log if it exists.
@@ -132,6 +141,8 @@ Use an Obsidian callout for larger context that should not become multiple check
 5. Insert under the best `###` heading inside `## 待办`.
 6. Keep `## 工作记录` and `## 复盘` intact unless the user explicitly asks to edit them.
 7. Report a concise summary of what was added or cleaned.
+
+If the user says “新增待办”, “加入待办”, or “记录到待办”, only update `## 待办`; do not add `## 工作记录` entries unless explicitly requested.
 
 ## Common Mistakes
 
